@@ -11,4 +11,4 @@ RUN curl -fsSL https://ollama.com/install.sh | bash
 EXPOSE 11434
 
 # Start Ollama server and pull the model
-CMD bash -c "ollama serve & sleep 5 && ollama pull smollm:135m && tail -f /dev/null"
+CMD bash -c "ollama serve --host 0.0.0.0 & sleep 5 && ollama pull smollm:135m && tail -f /dev/null"
