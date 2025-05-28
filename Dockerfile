@@ -1,11 +1,8 @@
-# Use Ollama base image
+# Base Ollama image
 FROM ollama/ollama
 
-# Pull the model you want to run
-RUN ollama pull smollm:135m
-
-# Expose Ollama API on port 11434
+# Expose the default Ollama port
 EXPOSE 11434
 
-# Start the Ollama service
-CMD ["ollama", "serve"]
+# Start the server and preload the model at runtime
+CMD /bin/sh -c "ollama serve & sleep 5 && ollama pull smollm:135m && tail -f /dev/null"
