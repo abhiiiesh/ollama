@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: ollama-llm
+    env: docker
+    plan: starter  # or use free for hobby testing
+    dockerfilePath: ./Dockerfile
+    autoDeploy: true
